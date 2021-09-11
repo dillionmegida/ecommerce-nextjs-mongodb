@@ -5,6 +5,7 @@ import middleware from 'server/middlewares/database'
 import { Mongoose } from 'mongoose'
 import BuyerModel from 'server/models/buyer.model'
 import { doesPasswordMatch } from 'server/utils/password'
+import { createToken } from 'server/utils/token'
 
 const handler = nc()
   .use(middleware)
@@ -16,8 +17,6 @@ const handler = nc()
       try {
         const { email, password } = req.body
 
-        console.log({ email, password })
-
         const buyerExists = await BuyerModel.findOne({
           email,
         })
@@ -27,13 +26,20 @@ const handler = nc()
             message: 'Username or password incorrect',
           })
 
-        if (!(await doesPasswordMatch(password, sellerExists.password)))
+        if (!(await doesPasswordMatch(password, buyerExists.password)))
           return res.status(StatusCodes.CONFLICT).json({
             message: 'Username or password incorrect',
           })
 
+        const token = createToken({
+          _id: buyerExists._id,
+          email: buyerExists.email,
+          type: 'buyer',
+        })
+
         res.status(StatusCodes.CREATED).json({
           message: 'Logged in successfully',
+          token,
         })
       } catch (err) {
         res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({

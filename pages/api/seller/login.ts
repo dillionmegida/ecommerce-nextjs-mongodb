@@ -34,6 +34,7 @@ const handler = nc()
         const token = createToken({
           _id: sellerExists._id,
           email: sellerExists.email,
+          type: 'seller',
         })
 
         res.status(StatusCodes.CREATED).json({
@@ -41,7 +42,6 @@ const handler = nc()
           token,
         })
       } catch (err) {
-        console.log({ err })
         res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
           message: 'Cannot login at the moment',
         })
