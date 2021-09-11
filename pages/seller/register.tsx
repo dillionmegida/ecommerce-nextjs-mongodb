@@ -24,7 +24,7 @@ export default function SellerRegister() {
         },
       })
 
-      toast.success('Successful')
+      window.location.href = '/seller/dashboard'
     } catch (err) {
       setProcessing(false)
       toast.error(err.response.data.message)

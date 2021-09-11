@@ -21,7 +21,7 @@
       "@enums/*": ["shared/enums/*"],
       "@constants/*": ["src/constants/*"],
       "@molecules/*": ["src/components/molecules/*"],
-      "@organisms/*": ["src/components/organisms/*"]
+      "@organisms/*": ["src/components/organisms/*"],
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
