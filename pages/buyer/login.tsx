@@ -43,7 +43,7 @@ export default function BuyerLogin() {
       },
     })
       .then(() => (window.location.href = '/buyer/dashboard'))
-      .catch()
+      .catch(() => {})
   }, [])
 
   return (

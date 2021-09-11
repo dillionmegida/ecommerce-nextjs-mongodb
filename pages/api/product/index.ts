@@ -39,7 +39,6 @@ const handler = nc()
           product,
         })
       } catch (err) {
-        console.log({ err })
         res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
           message: 'Cannot add a product moment',
         })
