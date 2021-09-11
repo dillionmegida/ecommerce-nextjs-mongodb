@@ -17,8 +17,11 @@
     "paths": {
       "@api/*": ["pages/api/*"],
       "@middlewares/*": ["server/middlewares/*"],
-      "@interfaces/*": ["src/interfaces/*"],
-      "@enums/*": ["src/enums/*"]
+      "@interfaces/*": ["shared/interfaces/*"],
+      "@enums/*": ["shared/enums/*"],
+      "@constants/*": ["src/constants/*"],
+      "@molecules/*": ["src/components/molecules/*"],
+      "@organisms/*": ["src/components/organisms/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],

@@ -8,14 +8,22 @@
     "start": "next start"
   },
   "dependencies": {
+    "autoprefixer": "^10.3.4",
+    "axios": "^0.21.4",
+    "bcryptjs": "^2.4.3",
     "mongoose": "^6.0.5",
     "next": "11.1.2",
     "next-connect": "^0.10.2",
     "react": "17.0.2",
     "react-dom": "17.0.2",
-    "styled-components": "^5.3.1"
+    "react-hook-form": "^6.15.1",
+    "react-toastify": "^8.0.2",
+    "styled-components": "^5.3.1",
+    "tailwindcss": "^2.2.15"
   },
   "devDependencies": {
+    "@types/axios": "^0.14.0",
+    "@types/bcryptjs": "^2.4.2",
     "@types/mongoose": "^5.11.97",
     "@types/react": "^17.0.20",
     "@types/styled-components": "^5.1.14",
