@@ -43,7 +43,7 @@ export default function SellerLogin() {
       },
     })
       .then(() => (window.location.href = '/seller/dashboard'))
-      .catch()
+      .catch(() => {})
   }, [])
 
   return (

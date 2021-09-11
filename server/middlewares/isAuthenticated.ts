@@ -1,10 +1,9 @@
 import { StatusCodes } from '@enums/StatusCodes'
 import type { NextApiRequest, NextApiResponse } from 'next'
-import nextConnect from 'next-connect'
 import { getTokenFromCookie, isTokenValid } from 'server/utils/token'
 
 async function isAuthenticated(
-  req: NextApiRequest & { user: any },
+  req: NextApiRequest & { user?: any },
   res: NextApiResponse,
   next: any
 ) {
@@ -22,8 +21,4 @@ async function isAuthenticated(
   next()
 }
 
-const isAuthenticatedMiddleware = nextConnect()
-
-isAuthenticatedMiddleware.use(isAuthenticated)
-
-export default isAuthenticatedMiddleware
+export default isAuthenticated
