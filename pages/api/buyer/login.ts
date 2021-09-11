@@ -27,7 +27,7 @@ const handler = nc()
             message: 'Username or password incorrect',
           })
 
-        if (!doesPasswordMatch(password, buyerExists.password))
+        if (!(await doesPasswordMatch(password, sellerExists.password)))
           return res.status(StatusCodes.CONFLICT).json({
             message: 'Username or password incorrect',
           })

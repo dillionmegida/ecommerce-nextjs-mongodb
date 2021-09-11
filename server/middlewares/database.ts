@@ -8,8 +8,8 @@ async function database(req, res, next) {
   return next()
 }
 
-const middleware = nextConnect()
+const databaseMiddleware = nextConnect()
 
-middleware.use(database)
+databaseMiddleware.use(database)
 
-export default middleware
+export default databaseMiddleware

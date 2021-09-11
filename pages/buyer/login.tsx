@@ -1,10 +1,11 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Layout from 'src/components/organisms/layout'
 import axios from 'axios'
 import AuthForm from '@molecules/auth-form'
 import { toast } from 'react-toastify'
 import links from '@constants/links'
 import Link from 'next/link'
+import { authHeader, setCookie } from 'src/utils/cookie'
 
 export default function BuyerLogin() {
   const [processing, setProcessing] = useState(false)
@@ -15,7 +16,7 @@ export default function BuyerLogin() {
     setProcessing(true)
 
     try {
-      await axios({
+      const res = await axios({
         method: 'post',
         url: '/api/buyer/login',
         data: {
@@ -24,12 +25,26 @@ export default function BuyerLogin() {
         },
       })
 
-      toast.success('Successful')
+      setCookie('AUTH', res.data.token)
+
+      window.location.href = '/buyer/dashboard'
     } catch (err) {
       setProcessing(false)
       toast.error(err.response.data.message)
     }
   }
+
+  useEffect(() => {
+    axios({
+      method: 'GET',
+      url: '/api/buyer/me',
+      headers: {
+        ...authHeader,
+      },
+    })
+      .then(() => (window.location.href = '/buyer/dashboard'))
+      .catch()
+  }, [])
 
   return (
     <Layout>
