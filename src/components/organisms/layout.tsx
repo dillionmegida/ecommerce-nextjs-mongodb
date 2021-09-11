@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import Header from '../molecules/header'
 
 const Children = styled.div`
-  min-height: 400px;
+  min-height: 600px;
 `
 
 type Props = {
