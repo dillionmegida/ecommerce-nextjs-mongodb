@@ -15,7 +15,10 @@
     "jsx": "preserve",
     "baseUrl": ".",
     "paths": {
-      "@api/*": ["pages/api/*"]
+      "@api/*": ["pages/api/*"],
+      "@middlewares/*": ["server/middlewares/*"],
+      "@interfaces/*": ["src/interfaces/*"],
+      "@enums/*": ["src/enums/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
