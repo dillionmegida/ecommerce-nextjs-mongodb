@@ -14,13 +14,15 @@ export default function Header() {
             <li className="mr-5">
               <Link href={links.BUYER.LOGIN}>
                 <a className="block py-2 px-6 text-grey-600 border border-orange">
-                  Login
+                  Buyer Login
                 </a>
               </Link>
             </li>
             <li>
-              <Link href={links.BUYER.REGISTER}>
-                <a className="block py-2 px-6 text-white bg-orange">Register</a>
+              <Link href={links.SELLER.LOGIN}>
+                <a className="block py-2 px-6 text-white bg-orange">
+                  Seller Login
+                </a>
               </Link>
             </li>
           </ul>

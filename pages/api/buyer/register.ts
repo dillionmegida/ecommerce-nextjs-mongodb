@@ -18,7 +18,6 @@ const handler = nc()
 
         const buyerExisits = await BuyerModel.findOne({
           email,
-          password,
         })
 
         if (buyerExisits)
