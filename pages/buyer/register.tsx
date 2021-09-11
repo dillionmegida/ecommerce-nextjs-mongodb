@@ -24,7 +24,9 @@ export default function BuyerRegister() {
         },
       })
 
-      toast.success('Successful')
+      toast.success('Account created successful')
+
+      window.location.href = '/buyer/dashboard'
     } catch (err) {
       setProcessing(false)
       toast.error(err.response.data.message)
